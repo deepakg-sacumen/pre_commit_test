@@ -57,13 +57,18 @@ repos:
       - id: mypy
         args: [--strict, --ignore-missing-imports]
 
-  - repo: local
+  - repo: https://github.com/numpy/numpydoc
+    rev: 'v1.6.0'
     hooks:
-      - id: pytest-cov
-        name: pytest-cov
-        stages: [commit]
-        language: system
-        entry:  pytest -v --cov=src/
-        types: [python]
-        pass_filenames: false
-        always_run: true
+      - id: numpydoc-validation
+
+  # - repo: local
+  #   hooks:
+  #     - id: pytest-cov
+  #       name: pytest-cov
+  #       stages: [commit]
+  #       language: system
+  #       entry:  pytest -v --cov=src/
+  #       types: [python]
+  #       pass_filenames: false
+  #       always_run: true
